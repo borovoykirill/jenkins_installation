@@ -1,0 +1,4 @@
+user_name: msg-service
+user_group: '{{ user_name }}'
+user_sudo_privs: no
+user_shell: /sbin/nologin

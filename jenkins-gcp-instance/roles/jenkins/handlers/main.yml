@@ -1,0 +1,19 @@
+- name: save jenkins fact
+  copy:
+    content: >
+      {
+        "configuration": {
+          "PORT": "{{ app_port }}",
+          "USER": "{{ app_user }}",
+          "GROUP": "{{ app_group }}"
+        },
+        "installed": "{{ ansible_date_time.iso8601 }}"
+      }
+    dest: /etc/ansible/facts.d/jenkins.fact
+
+- name: start jenkins
+  systemd:
+    daemon-reload: yes
+    name: jenkins
+    state: started
+    enabled: yes

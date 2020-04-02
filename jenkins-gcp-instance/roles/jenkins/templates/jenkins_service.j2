@@ -1,0 +1,13 @@
+[Unit]
+Description=Jenkins Automation Server
+Wants=network.target
+
+[Service]
+User={{ app_user }}
+Group={{ app_group }}
+Environment='JAVA_OPTS=-Duser.home=/opt/jenkins -Djenkins.install.runSetupWizard=false -Djava.awt.headless=true -Dhudson.plugins.git.GitSCM.verbose=true -Dorg.apache.commons.jelly.tags.fmt.timeZone=Europe/Minsk -Duser.timezone=Europe/Minsk -Dhttps.protocols=TLSv1.2 -Dorg.eclipse.jetty.server.Request.maxFormContentSize=5000000 -Dhudson.plugins.parameterizedtrigger.ProjectSpecificParametersActionFactory.compatibility_mode=true -Dpermissive-script-security.enabled=true -XX:MaxMetaspaceSize=1g -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC -XX:+DisableExplicitGC -Xms1000m -Xmx3000m -Dcom.sun.management.jmxremote.ssl=false'
+TimeoutSec=5min
+KillMode=process
+GuessMainPID=no
+ExecStart=/usr/bin/java $JAVA_OPTS -jar {{ app_home }}/jenkins.war
+ExecStop=/bin/kill -15 $MAINPID

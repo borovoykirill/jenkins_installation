@@ -1,0 +1,16 @@
+- name: Install nginx
+  yum:
+    name: nginx
+    state: present
+
+- name: Copy virtualhost files from templates
+  template:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+  with_items:
+  - src: vhost.j2
+    dest: /etc/nginx/conf.d/vhosts.conf
+  loop_control:
+    label: "{{ item.dest }}"
+  notify:
+  - restart nginx

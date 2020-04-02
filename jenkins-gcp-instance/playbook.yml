@@ -1,0 +1,38 @@
+# App host configuration
+
+- name: Configure app instances
+  hosts:
+    - jnkns
+  vars:
+    student_first_name: Siarhei
+    student_last_name: Kazak
+
+  roles:
+  - role: basic
+  - role: jenkins
+    vars:
+      app_user: 'jenkins'
+      app_home: '/opt/jenkins'
+
+# Web host configuration
+
+- name: Repeat facts collection
+  hosts:
+    - jnkns
+  tasks:
+  - name: Recollect network and app info on jen01
+    setup:
+      gather_subset:
+      - 'all'
+
+- name: Configure web instances
+  hosts:
+    - web
+
+  roles:
+  - role: basic
+  - role: web-service
+    vars:
+      backends:
+        - hostip: "{{ hostvars['jen01'].ansible_default_ipv4.address }}"
+          hostport: "{{ hostvars['jen01'].ansible_local.jenkins.configuration.PORT }}"

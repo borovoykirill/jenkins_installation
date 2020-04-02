@@ -1,0 +1,4 @@
+app_user: 'jenkins'
+app_group: '{{ app_user }}'
+app_port: 8080
+app_home: '/opt/jenkins'

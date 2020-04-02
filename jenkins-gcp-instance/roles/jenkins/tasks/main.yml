@@ -1,0 +1,40 @@
+- name: Create jenkins dirs
+  file:
+    path: '{{ item }}'
+    state: directory
+    owner: '{{ app_user }}'
+    group: '{{ app_group }}'
+  with_items:
+    - '{{ app_home }}'
+
+- name: Copy msg files from templates
+  template:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    owner: '{{ item.owner }}'
+    group: '{{ item.group }}'
+  with_items:
+  - src: jenkins_service.j2
+    dest: /etc/systemd/system/jenkins.service
+    owner: root
+    group: root
+  loop_control:
+    label: "{{ item.dest }}"
+  notify:
+  - save jenkins fact
+  - start jenkins
+
+- name: Stat msg binary file
+  stat:
+    path: '{{ app_home }}/jenkins.war'
+  register: stat_result
+
+- name: Download msg binary
+  get_url:
+    url: http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+    dest: '{{ app_home }}/'
+    owner: '{{ app_user }}'
+    group: '{{ app_group }}'
+  when: not stat_result.stat.exists
+
+- meta: flush_handlers

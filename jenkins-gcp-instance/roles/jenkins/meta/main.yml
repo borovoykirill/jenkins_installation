@@ -1,0 +1,2 @@
+dependencies:
+  - { role: user, user_name: '{{ app_user }}', user_group: '{{ app_group }}' }
