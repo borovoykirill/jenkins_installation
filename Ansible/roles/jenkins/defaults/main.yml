@@ -23,7 +23,6 @@ jenkins_java_options: "-Djenkins.install.runSetupWizard=fals \
 -Xms1000m -Xmx3000m -Dcom.sun.management.jmxremote.ssl=false"
 
 jenkins_admin_username: admin
-jenkins_admin_password: pas$w0rd
 jenkins_admin_password_file: ""
 #Jenkins will be running from jenkins user
 jenkins_process_user: jenkins

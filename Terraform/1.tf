@@ -50,7 +50,7 @@ git clone https://github.com/AndreiSan/JENKINS.git
 sudo chown ablinuxdevops: -R /home/ablinuxdevops/JENKINS/
 export ANSIBLE_GATHERING=smart
 export ansible_python_interpreter=auto
-#export ANSIBLE_VAULT_PASSWORD_FILE=./files/.ansible_vault
+export ANSIBLE_VAULT_PASSWORD_FILE=.ansible_vault
 cd /home/ablinuxdevops/JENKINS/Ansible
 ansible-playbook 1.yml
 EOF
@@ -80,11 +80,11 @@ EOF
   }
 
 /*    provisioner "file" {
-        source = "./files.tar"
-        destination = "/tmp/files.tar"
+        source = "./.ansible_vault"
+        destination = "/home/ablinuxdevops/.ansible_vault"
         connection {
             type = "ssh"
-            user = "student"
+            user = "ablinuxdevops"
             private_key = "${file("~/.ssh/id_rsa")}"
         }
     }*/
