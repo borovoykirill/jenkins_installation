@@ -1,0 +1,43 @@
+---
+# Version of Jenkins 
+jenkins_version: "2.229"
+# Change this to "latest" to update Jenkins if a newer version is available.
+
+jenkins_package_state: present
+jenkins_prefer_lts: false
+jenkins_connection_delay: 3
+jenkins_connection_retries: 30
+jenkins_home: /opt/jenkins
+jenkins_hostname: localhost
+jenkins_http_port: 8080
+jenkins_url_prefix: ""
+jenkins_java_options: "-Djenkins.install.runSetupWizard=fals \
+-Djenkins.install.runSetupWizard=false \
+-Djava.awt.headless=true -Dhudson.plugins.git.GitSCM.verbose=true \
+-Dorg.apache.commons.jelly.tags.fmt.timeZone=Europe/London \
+-Duser.timezone=Europe/London -Dhttps.protocols=TLSv1.2 \
+-Dorg.eclipse.jetty.server.Request.maxFormContentSize=5000000 \
+-Dhudson.plugins.parameterizedtrigger.ProjectSpecificParametersActionFactory.compatibility_mode=true \
+-Dpermissive-script-security.enabled=true -XX:MaxMetaspaceSize=1g \
+-XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC -XX:+DisableExplicitGC \
+-Xms1000m -Xmx3000m -Dcom.sun.management.jmxremote.ssl=false"
+
+jenkins_admin_username: admin
+jenkins_admin_password: pas$w0rd
+jenkins_admin_password_file: ""
+#Jenkins will be running from jenkins user
+jenkins_process_user: jenkins
+jenkins_process_group: "{{ jenkins_process_user }}"
+
+jenkins_init_changes:
+  - option: "JENKINS_ARGS"
+    value: "--prefix={{ jenkins_url_prefix }}"
+  - option: "{{ jenkins_java_options_env_var }}"
+    value: "{{ jenkins_java_options }}"
+
+# If Jenkins is behind a proxy, configure this.
+jenkins_proxy_host: ""
+jenkins_proxy_port: ""
+jenkins_proxy_noproxy:
+  - "127.0.0.1"
+  - "localhost"

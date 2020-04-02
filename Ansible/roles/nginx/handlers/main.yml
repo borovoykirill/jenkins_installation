@@ -1,0 +1,11 @@
+---
+# handlers file for web-service
+
+
+- name: Restart nginx
+  systemd:
+    name:
+      nginx
+    state:
+      restarted
+  become: yes
