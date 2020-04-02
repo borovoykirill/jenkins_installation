@@ -13,7 +13,7 @@ variable "server_ip" {}
 resource "google_dns_record_set" "jenkins_server" {
   name = "jenkins.abatura.playpit.net."
   type = "A"
-  ttl  = 300
+  ttl  = 10
   managed_zone = "socks-shop-dnszone"
   rrdatas = ["${var.server_ip}"]
 }
