@@ -1,4 +1,0 @@
----
-# defaults file for base
-pip_packages:
-- requests
