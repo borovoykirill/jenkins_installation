@@ -17,7 +17,6 @@ pip install -U pip
 sudo pip install ansible
 pip install requests google-auth
 sudo apt install python-requests -y
-sudo useradd karunaspavel -m
 cd /home/karunaspavel/
 git clone https://github.com/PavelKarunas/test_repository.git
 cd /home/karunaspavel/test_repository
