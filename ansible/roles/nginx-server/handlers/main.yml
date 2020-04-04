@@ -1,2 +1,5 @@
 ---
-# handlers file for nginx-server
+- name: restart nginx
+  systemd:
+    name: nginx
+    state: restarted

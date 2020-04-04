@@ -11,12 +11,12 @@
     src: proxy.conf
     dest: /etc/nginx/conf.d/proxy.conf
     mode: '0755'
+  notify: restart nginx
 
 
 - name: Start nginx
   systemd:
     name: nginx
-    state: restarted
+    state: started
     enabled: true
 
-# tasks file for nginx-server
