@@ -4,7 +4,7 @@ server {
 
 {% for i in backends %}
 
- location /{{ i.name }} {
+ location / {
     proxy_pass http://{{ i.hostip }}:{{ i.hostport }}/;
   }
 {% endfor %}
