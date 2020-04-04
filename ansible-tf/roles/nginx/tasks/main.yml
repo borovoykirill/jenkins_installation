@@ -1,0 +1,19 @@
+---
+# tasks file for nginx
+- name: Add epel-release repo
+  yum: name=nginx
+  become: yes
+- name: Copy backend.conf
+  become: yes
+  copy:
+    src: backend.conf
+    dest: /etc/nginx/conf.d/backend.conf
+    mode: 0666
+  notify:
+  - restart nginx
+- name: Start nginx
+  become: yes
+  service:
+    name: nginx
+    state: started
+    enabled: yes

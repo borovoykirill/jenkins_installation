@@ -1,0 +1,13 @@
+[Unit]
+Description=Jenkins Daemon
+After=network.target
+Requires=network.target
+
+[Service]
+ExecStart=/opt/jenkins/startup.sh
+ExecStop=/bin/kill -s QUIT $MAINPID
+Restart=always
+User=jenkins
+
+[Install]
+WantedBy=multi-user.target

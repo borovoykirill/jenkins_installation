@@ -1,0 +1,52 @@
+---
+# tasks file for jenkins
+- name: Create group for jenkins user
+  become: yes
+  group:
+    name: jenkins
+    state: present
+- name: Add user jenkins 
+  become: yes
+  user:
+    name: jenkins
+    group:  jenkins
+- name: Create /opt/jenkins
+  become: yes
+  file:
+    path: /opt/jenkins
+    state: directory
+    owner: jenkins
+    group: jenkins
+    mode: '0766'
+- name: Download from URL
+  become: yes
+  get_url:
+    owner: jenkins
+    group: jenkins
+    url:  http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+    dest: /opt/jenkins/jenkins.war 
+    mode: 0755
+- name: Copy startup script
+  become: yes
+  copy:
+    src: startup.sh
+    dest: /opt/jenkins/startup.sh
+    owner: jenkins
+    group: jenkins
+    mode: 0775
+- name: Copy service file
+  become: yes
+  copy:
+    src: jenkins.service
+    dest: /etc/systemd/system/jenkins.service 
+    owner: jenkins
+    group: jenkins
+    mode: 0772
+  notify:
+  - reload daemon
+- name: Start service
+  become: yes
+  service:
+    name: jenkins
+    state: started
+    enabled: yes

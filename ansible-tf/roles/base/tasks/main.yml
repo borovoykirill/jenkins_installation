@@ -1,0 +1,5 @@
+---
+# tasks file for base
+- name: Install java
+  yum: name=java-1.8.0-openjdk
+  become: yes
