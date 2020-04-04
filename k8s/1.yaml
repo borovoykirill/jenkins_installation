@@ -1,0 +1,98 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: jenkins
+  labels:
+   app: jenkins
+   user: abatura
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jenkins-home
+  namespace: jenkins
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5G
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: jenkins-deployment
+  namespace: jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins
+  template:
+    metadata:
+      labels:
+        app: jenkins
+        user: abatura
+    spec:      
+      initContainers:
+      - name: take-data-dir-ownership
+        image: alpine:3.6
+        command:
+        - chown
+        - -R  
+        - 1000:1000
+        - /var/jenkins_home
+        volumeMounts:
+        - name: jenkins-home
+          mountPath: /var/jenkins_home
+
+      containers:
+      - name: jenkins
+        image: jenkins/jenkins:lts
+        ports:
+        - containerPort: 8080
+          name: jenkins
+        volumeMounts:
+        - name: jenkins-home
+          mountPath: /var/jenkins_home
+      volumes:
+      - name: jenkins-home
+        persistentVolumeClaim:
+          claimName: jenkins-home
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins-lb  
+  labels:
+    name: jenkins-lb  
+  namespace: jenkins 
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+    nodePort: 30000
+  selector:
+    app: jenkins
+
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  namespace: jenkins
+  name: jenkins-ingress  
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: k8s.abatura.playpit.net
+    http:
+      paths:
+      - path:
+        backend:
+          serviceName: jenkins-lb
+          servicePort: 80
