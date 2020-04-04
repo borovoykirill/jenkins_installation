@@ -1,0 +1,17 @@
+[Unit]
+Description=Jenkins app
+After=network.target
+
+[Service]
+Type=simple
+EnvironmentFile=/opt/jenkins/envfile
+User=jenkins
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=jenkins
+
+ExecStart=/usr/bin/java $JAVA_OPTS -jar /opt/jenkins/jenkins.war
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,22 @@
+---
+- name: Get nginx apt
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+
+
+- name: Create proxy config
+  copy:
+    src: proxy.conf
+    dest: /etc/nginx/conf.d/proxy.conf
+    mode: '0755'
+
+
+- name: Start nginx
+  systemd:
+    name: nginx
+    state: restarted
+    enabled: true
+
+# tasks file for nginx-server

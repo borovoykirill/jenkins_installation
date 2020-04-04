@@ -1,0 +1,11 @@
+- name: Setup jenkins
+  hosts: ci
+
+  roles:
+    - role: jenkins-server
+
+- name: Setup nginx
+  hosts: web
+
+  roles:
+    - role: nginx-server

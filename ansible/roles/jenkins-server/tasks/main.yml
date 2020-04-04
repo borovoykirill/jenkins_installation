@@ -1,0 +1,57 @@
+---
+- name: Install java
+  apt:
+    name: default-jdk
+    state: present
+    update_cache: yes
+
+- name: Add the user 'jenkins'
+  user:
+    name: jenkins
+    comment: Service user
+
+
+- name: Create a /opt/jenkins directory
+  file:
+    path: /opt/jenkins
+    state: directory
+    mode: '0755'
+    owner: jenkins
+    group: jenkins
+
+
+- name: Download jenkins.war
+  get_url:
+    url: http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+    dest: /opt/jenkins/jenkins.war
+    mode: '0755'
+    owner: jenkins
+    group: jenkins
+
+
+- name: Create a environment file for Service
+  copy:
+    src: envfile
+    dest: /opt/jenkins/envfile
+    mode: '0755'
+    owner: jenkins
+    group: jenkins
+
+
+- name: Create a Systemd Service file
+  copy:
+    src: jenkins.service
+    dest: /etc/systemd/system/jenkins.service
+    mode: '0755'
+    owner: jenkins
+    group: jenkins
+
+
+- name: Enable and start Service
+  systemd:
+    state: started
+    daemon_reload: yes
+    name: jenkins
+    enabled: yes
+
+# tasks file for jenkins-server
