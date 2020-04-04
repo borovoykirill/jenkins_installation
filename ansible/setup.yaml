@@ -2,6 +2,7 @@
   hosts: ci
 
   roles:
+    - role: java
     - role: jenkins-server
 
 - name: Setup nginx
