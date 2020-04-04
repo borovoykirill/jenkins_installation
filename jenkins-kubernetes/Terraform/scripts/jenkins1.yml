@@ -57,7 +57,7 @@ metadata:
   labels:
     app: jenkins
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: jenkins
   ports:
@@ -72,7 +72,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
   namespace: jenkins
-  name: ingress-jenkins
+  name: ingress-jenkins-master
 spec:
   rules:
   - host: jenkins.k8s.skazak.playpit.net
@@ -82,3 +82,4 @@ spec:
         backend:
           serviceName: jenkins-svc
           servicePort: 80
+
