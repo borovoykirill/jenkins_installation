@@ -1,0 +1,7 @@
+Started by timer
+Running as SYSTEM
+Building in workspace /opt/jenkins/workspace/mfilipovich-easy
+[mfilipovich-easy] $ /bin/sh -xe /tmp/jenkins689042929669661788.sh
++ echo hello world
+hello world
+Finished: SUCCESS

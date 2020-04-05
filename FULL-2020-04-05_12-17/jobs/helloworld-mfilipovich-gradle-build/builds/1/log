@@ -1,0 +1,66 @@
+Started by user [8mha:////4IhRKJStOEqL48tlwihmS7Yo9iz3y2evK011C4QxpbJ5AAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /opt/jenkins/workspace/helloworld-mfilipovich-gradle-build
+Using checkout strategy: Default
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/MNT-Lab/build-t00ls.git
+ > /usr/bin/git init /opt/jenkins/workspace/helloworld-mfilipovich-gradle-build # timeout=10
+Fetching upstream changes from https://github.com/MNT-Lab/build-t00ls.git
+ > /usr/bin/git --version # timeout=10
+ > /usr/bin/git fetch --tags --progress -- https://github.com/MNT-Lab/build-t00ls.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > /usr/bin/git config remote.origin.url https://github.com/MNT-Lab/build-t00ls.git # timeout=10
+ > /usr/bin/git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > /usr/bin/git config remote.origin.url https://github.com/MNT-Lab/build-t00ls.git # timeout=10
+Fetching upstream changes from https://github.com/MNT-Lab/build-t00ls.git
+ > /usr/bin/git fetch --tags --progress -- https://github.com/MNT-Lab/build-t00ls.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+getCandidateRevisions(false,origin/mfilipovich,,,hudson.plugins.git.util.BuildData@dbfa34f9[scmName=<null>,remoteUrls=[https://github.com/MNT-Lab/build-t00ls.git],buildsByBranchName={},lastBuild=null]) considering branches to build
+Qualifying origin/mfilipovich as a branch in repository origin -> refs/remotes/origin/mfilipovich
+Qualifying origin/mfilipovich as a branch in repository origin -> refs/remotes/origin/origin/mfilipovich
+ > /usr/bin/git rev-parse refs/remotes/origin/mfilipovich^{commit} # timeout=10
+rev-parse refs/remotes/origin/mfilipovich -> AnyObjectId[df5f743b64b9c1ecee2c6f286580aee08cf63223]
+Found a new commit AnyObjectId[df5f743b64b9c1ecee2c6f286580aee08cf63223] to be built on refs/remotes/origin/mfilipovich
+ > /usr/bin/git rev-parse refs/remotes/origin/origin/mfilipovich^{commit} # timeout=10
+Failed to rev-parse: refs/remotes/origin/origin/mfilipovich
+Checking out Revision df5f743b64b9c1ecee2c6f286580aee08cf63223 (refs/remotes/origin/mfilipovich)
+ > /usr/bin/git config core.sparsecheckout # timeout=10
+ > /usr/bin/git checkout -f df5f743b64b9c1ecee2c6f286580aee08cf63223 # timeout=10
+Commit message: "gradle"
+First time build. Skipping changelog.
+[Gradle] - Launching build.
+[helloworld-mfilipovich-gradle-build] $ /opt/gradle/gradle-5.2.1/bin/gradle build -b ./home-task/build.gradle
+
+Welcome to Gradle 5.2.1!
+
+Here are the highlights of this release:
+ - Define sets of dependencies that work together with Java Platform plugin
+ - New C++ plugins with dependency management built-in
+ - New C++ project types for gradle init
+ - Service injection into plugins and project extensions
+
+For more details see https://docs.gradle.org/5.2.1/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+[8mha:////4HIplgI+7gAQQybb1zNvw7CNhzFF4DwgX6MN/JjXRj5CAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :compileJava
+[8mha:////4HIplgI+7gAQQybb1zNvw7CNhzFF4DwgX6MN/JjXRj5CAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :processResources
+[8mha:////4HIplgI+7gAQQybb1zNvw7CNhzFF4DwgX6MN/JjXRj5CAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :classes
+[8mha:////4HIplgI+7gAQQybb1zNvw7CNhzFF4DwgX6MN/JjXRj5CAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :jar
+[8mha:////4HIplgI+7gAQQybb1zNvw7CNhzFF4DwgX6MN/JjXRj5CAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :assemble
+[8mha:////4HIplgI+7gAQQybb1zNvw7CNhzFF4DwgX6MN/JjXRj5CAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :compileTestJava
+[8mha:////4HIplgI+7gAQQybb1zNvw7CNhzFF4DwgX6MN/JjXRj5CAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :processTestResources NO-SOURCE
+[8mha:////4HIplgI+7gAQQybb1zNvw7CNhzFF4DwgX6MN/JjXRj5CAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :testClasses
+[8mha:////4HIplgI+7gAQQybb1zNvw7CNhzFF4DwgX6MN/JjXRj5CAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :test
+[8mha:////4HIplgI+7gAQQybb1zNvw7CNhzFF4DwgX6MN/JjXRj5CAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :check
+[8mha:////4HIplgI+7gAQQybb1zNvw7CNhzFF4DwgX6MN/JjXRj5CAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :build
+
+[8mha:////4FVDR9pHqMrs7MdDwIj4sO+90n2oSvqBfRbNcs6Gz7HZAAAAYx+LCAAAAAAAAP9b85aBtbiIQT2jNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUz5l5Yk5+em+uWXpNbNmqZ4mHPZIiYGhooiBimoruT8vOJ8oHJnCA1SyAABjCCFBQBI197DZQAAAA==[0mBUILD SUCCESSFUL in 17s
+5 actionable tasks: 5 executed
+Build step 'Invoke Gradle script' changed build result to SUCCESS
+[helloworld-mfilipovich-gradle-build] $ /bin/sh -xe /tmp/jenkins3783668594126675413.sh
++ java -jar /opt/jenkins/workspace/helloworld-mfilipovich-gradle-build/home-task/build/libs/mfilipovich-artifact.jar
+[helloworld-mfilipovich-gradle-build] $ /bin/sh -xe /tmp/jenkins6620596336534875104.sh
++ tar -czvf ARTEFACT_NAME=hello-1.tar.gz /opt/jenkins/workspace/helloworld-mfilipovich-gradle-build/home-task/build/libs/mfilipovich-artifact.jar
+tar: Removing leading `/' from member names
+/opt/jenkins/workspace/helloworld-mfilipovich-gradle-build/home-task/build/libs/mfilipovich-artifact.jar
+Archiving artifacts
+Finished: SUCCESS

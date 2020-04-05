@@ -1,0 +1,14 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<hudson.tasks.Mailer_-DescriptorImpl plugin="mailer@1.30">
+  <defaultSuffix></defaultSuffix>
+  <hudsonUrl>http://35.188.16.230/</hudsonUrl>
+  <authentication>
+    <username>maxim.filipovich21@gmail.com</username>
+    <password>{AQAAABAAAAAQ3+qWR5LnY1UvuOqWbv0ern88AmAN5jZNEnB2eZhXJ0U=}</password>
+  </authentication>
+  <replyToAddress>maxim.filipovich.epam@gmail.com</replyToAddress>
+  <smtpHost>smtp.gmail.com</smtpHost>
+  <useSsl>true</useSsl>
+  <smtpPort>465</smtpPort>
+  <charset>UTF-8</charset>
+</hudson.tasks.Mailer_-DescriptorImpl>

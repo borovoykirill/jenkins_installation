@@ -1,0 +1,26 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<result plugin="junit@1.28">
+  <suites>
+    <suite>
+      <name>day3-hello-17.xml</name>
+      <stdout></stdout>
+      <stderr></stderr>
+      <duration>0.0</duration>
+      <enclosingBlocks/>
+      <enclosingBlockNames/>
+      <cases>
+        <case>
+          <duration>0.0</duration>
+          <className>day3-hello-17.xml</className>
+          <testName>[empty]</testName>
+          <skipped>false</skipped>
+          <errorStackTrace>Test report file /var/jenkins_home/workspace/module-5-mfilipovich-build-scheduled/home-task/build/test-results/test/day3-hello-17.xml was length 0</errorStackTrace>
+          <errorDetails></errorDetails>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+  </suites>
+  <duration>0.0</duration>
+  <keepLongStdio>true</keepLongStdio>
+</result>

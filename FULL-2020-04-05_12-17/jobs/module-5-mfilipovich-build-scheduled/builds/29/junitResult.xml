@@ -1,0 +1,35 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<result plugin="junit@1.28">
+  <suites>
+    <suite>
+      <file>/var/jenkins_home/workspace/module-5-mfilipovich-build-scheduled/home-task/build/test-results/test/TEST-com.test.UnitTest.xml</file>
+      <name>com.test.UnitTest</name>
+      <stdout>test
+</stdout>
+      <stderr></stderr>
+      <duration>0.017</duration>
+      <timestamp>2020-04-03T17:57:21</timestamp>
+      <time>0.017</time>
+      <enclosingBlocks/>
+      <enclosingBlockNames/>
+      <cases>
+        <case>
+          <duration>0.012</duration>
+          <className>com.test.UnitTest</className>
+          <testName>test</testName>
+          <skipped>false</skipped>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001</duration>
+          <className>com.test.UnitTest</className>
+          <testName>testAppHasAGreeting</testName>
+          <skipped>false</skipped>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+  </suites>
+  <duration>0.017</duration>
+  <keepLongStdio>true</keepLongStdio>
+</result>

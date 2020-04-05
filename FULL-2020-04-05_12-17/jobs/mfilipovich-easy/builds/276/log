@@ -1,0 +1,7 @@
+Started by user [8mha:////4J3bt5qpfSwsgp+MZNECs8RhvSkY/WPY0KLFEiBBFGBHAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzBEgZu/dLi1CL9xJTczDwAo1uC48AAAAA=[0mMaxim  Filipovich
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/mfilipovich-easy
+[mfilipovich-easy] $ /bin/sh -xe /tmp/jenkins2862169671151579211.sh
++ echo hello world
+hello world
+Finished: SUCCESS

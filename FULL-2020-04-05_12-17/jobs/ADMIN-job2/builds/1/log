@@ -1,0 +1,10 @@
+Started by user [8mha:////4IhRKJStOEqL48tlwihmS7Yo9iz3y2evK011C4QxpbJ5AAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /opt/jenkins/workspace/ADMIN-job2
+[ADMIN-job2] $ /bin/sh -xe /tmp/jenkins3859053272083687150.sh
++ cd /tmp
++ touch ADMIN-job2.txt
++ tar -czvf admin-job2.tar.gz /tmp/ADMIN-job2.txt
+tar: Removing leading `/' from member names
+/tmp/ADMIN-job2.txt
+Finished: SUCCESS

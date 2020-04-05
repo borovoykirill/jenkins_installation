@@ -1,0 +1,12 @@
+Started by upstream project "[8mha:////4Els6ZKPKpeifAP5LCEfw+zjgy1WMnMl5HVgKrO77wdYAAAAtB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyVEgYt/az8JP3c/JTSnFRdU93ctMyczIL8sszkDN2k0sycFN3i5IxUkGSKPgCWHYfb3wAAAA==[0mmodule-5-mfilipovich-build-scheduled" build number [8mha:////4ES9A7H1Ehxz+zSUgll34AMdSRitnBb4/yjounZv2tF3AAAAth+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAymEgYd/az8JP3c/JTSnFRdU93ctMyczIL8sszkDN2k0sycFN3i5IxUkGSKvpEJAJ89y+DhAAAA[0m24
+originally caused by:
+ Started by user [8mha:////4J3bt5qpfSwsgp+MZNECs8RhvSkY/WPY0KLFEiBBFGBHAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzBEgZu/dLi1CL9xJTczDwAo1uC48AAAAA=[0mMaxim  Filipovich
+Running as SYSTEM
+Building in workspace /var/jenkins_home/artifacts
+[artifacts] $ /bin/sh -xe /tmp/jenkins8698879495394557878.sh
++ tar xvzf day3-hello-24.tar.gz
+var/jenkins_home/workspace/module-5-mfilipovich-build-scheduled/home-task/build/libs/mfilipovich-artifact.jar
++ java -jar /var/jenkins_home/workspace/module-5-mfilipovich-build-scheduled/home-task/build/libs/mfilipovich-artifact.jar
++ cat output-gradle.log
+Hello, MNT Lab!
+Finished: SUCCESS

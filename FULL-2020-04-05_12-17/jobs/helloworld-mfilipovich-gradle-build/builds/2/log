@@ -1,0 +1,44 @@
+Started by user [8mha:////4J3bt5qpfSwsgp+MZNECs8RhvSkY/WPY0KLFEiBBFGBHAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzBEgZu/dLi1CL9xJTczDwAo1uC48AAAAA=[0mMaxim  Filipovich
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/helloworld-mfilipovich-gradle-build
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/MNT-Lab/build-t00ls.git
+ > /usr/bin/git init /var/jenkins_home/workspace/helloworld-mfilipovich-gradle-build # timeout=10
+Fetching upstream changes from https://github.com/MNT-Lab/build-t00ls.git
+ > /usr/bin/git --version # timeout=10
+ > /usr/bin/git fetch --tags --progress -- https://github.com/MNT-Lab/build-t00ls.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > /usr/bin/git config remote.origin.url https://github.com/MNT-Lab/build-t00ls.git # timeout=10
+ > /usr/bin/git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > /usr/bin/git config remote.origin.url https://github.com/MNT-Lab/build-t00ls.git # timeout=10
+Fetching upstream changes from https://github.com/MNT-Lab/build-t00ls.git
+ > /usr/bin/git fetch --tags --progress -- https://github.com/MNT-Lab/build-t00ls.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > /usr/bin/git rev-parse refs/remotes/origin/mfilipovich^{commit} # timeout=10
+ > /usr/bin/git rev-parse refs/remotes/origin/origin/mfilipovich^{commit} # timeout=10
+Checking out Revision df5f743b64b9c1ecee2c6f286580aee08cf63223 (refs/remotes/origin/mfilipovich)
+ > /usr/bin/git config core.sparsecheckout # timeout=10
+ > /usr/bin/git checkout -f df5f743b64b9c1ecee2c6f286580aee08cf63223 # timeout=10
+Commit message: "gradle"
+ > /usr/bin/git rev-list --no-walk df5f743b64b9c1ecee2c6f286580aee08cf63223 # timeout=10
+[Gradle] - Launching build.
+Unpacking https://services.gradle.org/distributions/gradle-6.3-bin.zip to /var/jenkins_home/tools/hudson.plugins.gradle.GradleInstallation/gradle-5.2.1 on Jenkins
+[helloworld-mfilipovich-gradle-build] $ /var/jenkins_home/tools/hudson.plugins.gradle.GradleInstallation/gradle-5.2.1/bin/gradle build -b ./home-task/build.gradle
+
+Welcome to Gradle 6.3!
+
+Here are the highlights of this release:
+ - Java 14 support
+ - Improved error messages for unexpected failures
+
+For more details see https://docs.gradle.org/6.3/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+[8mha:////4IHtBxczkKaNdm+7eStCoxF+hgjKNC4Is30uJCvDPaq+AAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :compileJava
+[8mha:////4IHtBxczkKaNdm+7eStCoxF+hgjKNC4Is30uJCvDPaq+AAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :processResources
+[8mha:////4IHtBxczkKaNdm+7eStCoxF+hgjKNC4Is30uJCvDPaq+AAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :classes
+[8mha:////4IHtBxczkKaNdm+7eStCoxF+hgjKNC4Is30uJCvDPaq+AAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :jar
+[8mha:////4IHtBxczkKaNdm+7eStCoxF+hgjKNC4Is30uJCvDPaq+AAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :assemble
+[8mha:////4IHtBxczkKaNdm+7eStCoxF+hgjKNC4Is30uJCvDPaq+AAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :compileTestJava
+[8mha:////4IHtBxczkKaNdm+7eStCoxF+hgjKNC4Is30uJCvDPaq+AAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :processTestResources NO-SOURCE
+[8mha:////4IHtBxczkKaNdm+7eStCoxF+hgjKNC4Is30uJCvDPaq+AAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :testClasses
+[8mha:////4IHtBxczkKaNdm+7eStCoxF+hgjKNC4Is30uJCvDPaq+AAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :test

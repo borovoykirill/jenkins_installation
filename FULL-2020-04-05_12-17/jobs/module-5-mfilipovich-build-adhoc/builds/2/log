@@ -1,0 +1,14 @@
+Started by upstream project "[8mha:////4Els6ZKPKpeifAP5LCEfw+zjgy1WMnMl5HVgKrO77wdYAAAAtB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyVEgYt/az8JP3c/JTSnFRdU93ctMyczIL8sszkDN2k0sycFN3i5IxUkGSKPgCWHYfb3wAAAA==[0mmodule-5-mfilipovich-build-scheduled" build number [8mha:////4OYBTMO12M7+p0/u32JW0lfSWjT8DFwbur8n/+Cu2JiCAAAAth+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAymEgYd/az8JP3c/JTSnFRdU93ctMyczIL8sszkDN2k0sycFN3i5IxUkGSKvpERAKqYqAnhAAAA[0m22
+originally caused by:
+ Started by user [8mha:////4J3bt5qpfSwsgp+MZNECs8RhvSkY/WPY0KLFEiBBFGBHAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzBEgZu/dLi1CL9xJTczDwAo1uC48AAAAA=[0mMaxim  Filipovich
+Running as SYSTEM
+Building in workspace /var/jenkins_home/artifacts
+[artifacts] $ /bin/sh -xe /tmp/jenkins4899023148640344478.sh
++ tar xvzf day3-hello-22.tar.gz
+tar (child): day3-hello-22.tar.gz: Cannot open: No such file or directory
+tar (child): Error is not recoverable: exiting now
+tar: Child returned status 2
+tar: Error is not recoverable: exiting now
+Build step 'Execute shell' marked build as failure
+Sending e-mails to: maxim.filipovich.epam@gmail.com
+Finished: FAILURE
