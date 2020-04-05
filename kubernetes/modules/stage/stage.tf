@@ -1,4 +1,4 @@
-resource "google_container_cluster" "prod" {
+resource "google_container_cluster" "stage" {
   name     = var.name
   location  = var.location
 
@@ -15,11 +15,20 @@ resource "google_container_cluster" "prod" {
   }
 }
 
-resource "google_container_node_pool" "prod_nodes" {
+resource "google_container_node_pool" "nodes" {
   name       = var.node_pool_name
-  cluster    = "${google_container_cluster.prod.name}"
+  cluster    = "${google_container_cluster.stage.name}"
   node_count = var.node_count
   location   =  var.location
+
+  provisioner "local-exec" {
+    command = var.gcloud_command
+  }
+
+  provisioner "local-exec" {
+    command = var.script
+  }
+
   node_config {
     preemptible  = true
     machine_type = var.machine_type
@@ -33,4 +42,5 @@ resource "google_container_node_pool" "prod_nodes" {
       "https://www.googleapis.com/auth/monitoring",
     ]
   }
+
 }

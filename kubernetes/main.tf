@@ -6,24 +6,6 @@ module "stage" {
   node_pool_name	= "stage-node-pool"
   node_count		= 1
   machine_type		= "n1-standard-2"
+  gcloud_command	= "gcloud container clusters get-credentials stage --zone europe-west3-a --project artsemiyoursh-day1proj-268813"
+  script		= "/bin/bash script/script.sh"
 }
-
-
-#module "prod" {
-#  source = "./modules/prod"
-#
-#  name			= "prod"
-#  location		= "europe-west2"
-#  initial_node_count	= 1
-#  node_pool_name	= "prod-node-pool"
-#  node_count		= 1
-#  machine_type		= "g1-small"
-#}
-
-#module "mngz" {
-#  source = "./modules/mngz"
-#
-#  name			= "yoursh"
-#  dns_name		= "ayoursh.playpit.net."
-#  description		= "mydns"
-#}

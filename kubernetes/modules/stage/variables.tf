@@ -23,3 +23,11 @@ variable "node_count" {
 variable "machine_type" {
   type        = string
 }
+
+variable "gcloud_command" {
+  type        = string
+}
+
+variable "script" {
+  type        = string
+}
