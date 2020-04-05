@@ -1,0 +1,51 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jenkins-slave-01
+  namespace: jenkins
+  labels:
+    role: slave-manual
+    type: manual
+spec:
+  containers:
+  - name: jenkins-slave
+    image: jenkinsci/jnlp-slave
+    securityContext:
+      privileged: false
+    tty: true
+    env:
+    - name: "JENKINS_SECRET"
+      value: "46f34b343ce6f1c6b7b2eaa92d1e7461b6ec116cb1dcd6493dafd92083dbdab6"
+    - name: "JENKINS_AGENT_NAME"
+      value: "node01"
+    - name: "JENKINS_AGENT_WORKDIR"
+      value: "/home/jenkins/agent"
+    - name: "JENKINS_URL"
+      value: "http://10.39.255.199"
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jenkins-slave-02
+  namespace: jenkins
+  labels:
+    role: slave-manual
+    type: manual
+spec:
+  containers:
+  - name: jenkins-slave
+    image: jenkinsci/jnlp-slave
+    securityContext:
+      privileged: false
+    tty: true
+    env:
+    - name: "JENKINS_SECRET"
+      value: "87fabc95841bd2e9630b1bead3015c8bc381e20e9e86c6d31b5f31b2f76c592e"
+    - name: "JENKINS_AGENT_NAME"
+      value: "node02"
+    - name: "JENKINS_AGENT_WORKDIR"
+      value: "/home/jenkins/agent"
+    - name: "JENKINS_URL"
+      value: "http://10.39.255.199"

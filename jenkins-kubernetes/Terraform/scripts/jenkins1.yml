@@ -41,6 +41,7 @@ spec:
         image: jenkins/jenkins:lts
         ports:
         - containerPort: 8080
+        - containerPort: 50000
         volumeMounts:
         - name: jenkins-home
           mountPath: /var/jenkins_home
@@ -48,6 +49,7 @@ spec:
         - name: jenkins-home
           persistentVolumeClaim:
             claimName: jenkins-data-claim
+
 ---
 apiVersion: v1
 kind: Service
@@ -61,10 +63,15 @@ spec:
   selector:
     app: jenkins
   ports:
-    - port: 80
+    - name: ui
+      port: 80
       targetPort: 8080
+    - name: jnlp
+      port: 50000
+      targetPort: 50000
   selector:
     app: jenkins
+
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -82,4 +89,3 @@ spec:
         backend:
           serviceName: jenkins-svc
           servicePort: 80
-
