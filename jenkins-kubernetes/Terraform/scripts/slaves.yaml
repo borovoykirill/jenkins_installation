@@ -36,16 +36,10 @@ metadata:
 spec:
   containers:
   - name: jenkins-slave
-    image: jenkinsci/jnlp-slave
+    image: docker.io/twiceaday/jenkins-slave
     securityContext:
       privileged: false
     tty: true
     env:
-    - name: "JENKINS_SECRET"
-      value: "87fabc95841bd2e9630b1bead3015c8bc381e20e9e86c6d31b5f31b2f76c592e"
-    - name: "JENKINS_AGENT_NAME"
-      value: "node02"
-    - name: "JENKINS_AGENT_WORKDIR"
-      value: "/home/jenkins/agent"
-    - name: "JENKINS_URL"
-      value: "http://10.39.255.199"
+    - name: "JENKINS_SLAVE_SSH_PUBKEY"
+      value: "***SSH_PUBLIC_KEY***"
