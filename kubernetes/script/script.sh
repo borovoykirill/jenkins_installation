@@ -47,9 +47,13 @@ spec:
           mountPath: /var/jenkins_home
       containers:
       - name: jenkins
-        image: jenkins/jenkins:lts
+        image: jenkinsci/blueocean
+        env:
+        - name: JAVA_OPTS
+          value: "-Djenkins.install.runSetupWizard=false"
         ports:
         - containerPort: 8080
+          containerPort: 50000
         volumeMounts:
         - name: jenkins-home
           mountPath: /var/jenkins_home
