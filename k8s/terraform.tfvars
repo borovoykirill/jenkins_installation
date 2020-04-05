@@ -10,6 +10,6 @@ dnszone = "abatura.playpit.net"
 
 project = "vocal-door-268207"
 
-machine_type = "g1-small" 
+machine_type = "n1-standard-1" 
 
 initial_node_count = 1 

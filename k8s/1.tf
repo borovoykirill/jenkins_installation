@@ -18,7 +18,7 @@ resource "google_container_cluster" "jenkins_k8s" {
   location    = "${var.zone}"
   description = "${var.name} production GCP cluster"
   remove_default_node_pool = true
-  initial_node_count       = 1
+  initial_node_count       = 2
 
   master_auth {
     username = ""
@@ -36,6 +36,16 @@ resource "google_container_node_pool" "jenkins_pool" {
   cluster    = "${google_container_cluster.jenkins_k8s.name}"
   node_count = 1
   depends_on = ["google_container_cluster.jenkins_k8s"]
+  provisioner "local-exec" {
+  command = "gcloud container clusters get-credentials jenkins --zone us-central1-c --project vocal-door-268207"
+  interpreter = ["PowerShell", "-Command"]  
+  }
+
+  provisioner "local-exec" {
+  command = "kubectl apply -f 1.yaml"
+  interpreter = ["PowerShell", "-Command"]  
+  }
+
   node_config {
     preemptible  = true
     machine_type = "${var.machine_type}"
@@ -56,21 +66,14 @@ resource "google_container_node_pool" "jenkins_pool" {
   }
 }
 
-resource "null_resource" "localscript" {
+  resource "null_resource" "localscript" {
   depends_on = ["google_container_node_pool.jenkins_pool"]
   provisioner "local-exec" {
     command = "Get-Date >> k8s_created.log"
     interpreter = ["PowerShell", "-Command"]
     environment = {
-      name = "admin"
-      number = 1
+      app = "jenkins"
+      nodes = 1
     }
-    provisioner "local-exec" {
-    command = "gcloud container clusters get-credentials jenkins --zone us-central1-c --project vocal-door-268207"
-    interpreter = ["PowerShell", "-Command"]  
-  }
-    provisioner "local-exec" {
-    command = "kubectl apply -f 1.yaml"
-    interpreter = ["PowerShell", "-Command"]  
   }
 }

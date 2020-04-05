@@ -54,6 +54,8 @@ spec:
         ports:
         - containerPort: 8080
           name: jenkins
+        - containerPort: 50000
+          name: jnlp-port
         volumeMounts:
         - name: jenkins-home
           mountPath: /var/jenkins_home
@@ -80,19 +82,37 @@ spec:
     app: jenkins
 
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   namespace: jenkins
   name: jenkins-ingress  
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  backend:
+    serviceName: jenkins-lb
+    servicePort: 80
   rules:
   - host: k8s.abatura.playpit.net
     http:
       paths:
-      - path:
-        backend:
+      - backend:
           serviceName: jenkins-lb
           servicePort: 80
+        path: /
+status:
+  loadBalancer: {}
+
+---
+  kind: Service
+  apiVersion: v1
+  metadata:
+    name: jenkins-discovery
+    namespace: jenkins
+  spec:
+    selector:
+      app: jenkins
+    ports:
+      - protocol: TCP
+        port: 50000
+        targetPort: 50000
+        name: slaves
