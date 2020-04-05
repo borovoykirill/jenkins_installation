@@ -22,7 +22,7 @@ resource "google_container_node_pool" "jenkins_nodes" {
   location   = "us-central1-c"
   node_config {
     preemptible  = true
-    machine_type = "g1-small"
+    machine_type = "n1-standard-1"
 
     metadata = {
       disable-legacy-endpoints = "true"
@@ -39,5 +39,18 @@ resource "google_container_node_pool" "jenkins_nodes" {
       "https://www.googleapis.com/auth/logging.write",
       "https://www.googleapis.com/auth/monitoring",
     ]
+  }
+}
+
+resource "null_resource" "localscript" {
+  depends_on = ["google_container_node_pool.jenkins_nodes"]
+ 
+    provisioner "local-exec" {
+    command = "gcloud container clusters get-credentials jenkins --zone us-central1-c --project my-epamlab0012-ansible"
+    interpreter = ["PowerShell", "-Command"]  
+  }
+    provisioner "local-exec" {
+    command = "kubectl apply -f jenkins.yaml"
+    interpreter = ["PowerShell", "-Command"]  
   }
 }
