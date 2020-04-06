@@ -14,6 +14,7 @@ kubectl label node --all node-role.kubernetes.io/worker=
 kubectl label node $(kubectl get nodes | grep -v NAME | sort | head -n1 | cut -d' ' -f1) node-role.kubernetes.io/worker-
 
 kubectl create ns jenkins
+kubectl create ns sonar
 
 # Deploy jenkins
 
