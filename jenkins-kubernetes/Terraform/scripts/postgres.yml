@@ -56,8 +56,6 @@ metadata:
     app: pgsql-server
 spec:
   type: ClusterIP
-  selector:
-    app: pgsql-server
   ports:
     - name: postgres
       port: 5432

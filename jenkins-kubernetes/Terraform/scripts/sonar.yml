@@ -114,8 +114,6 @@ metadata:
     app: sonar-server
 spec:
   type: NodePort
-  selector:
-    app: sonar-server
   ports:
     - name: ui
       port: 9000
