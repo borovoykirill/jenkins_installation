@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: "jenkins-slave"
+  namespace: jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins-slave
+  template:
+    metadata:
+      labels:
+        app: "jenkins-slave"
+    spec:
+      containers:
+      - name: ssh-slave
+        image: jenkinsci/ssh-slave
+        env:
+          - name: JENKINS_SLAVE_SSH_PUBKEY
+            value: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSy2jiMqDyMDdrzGwqreXaYccoAAXwOoXc+z7d0OYeiclsEmEpltI2HTuPrVW5VnuEBHsTTQuQHG0Cagce2FTfy6Dg2O9SzHGjhkSMU3EHZ5rMmmq+a43yIH33Mh7FMYIwSHDYsqZSs9JAqn7UVgb2I18cPBnaLXbEv9iDmY5V/M6akefUPitwb14rB1xf3LjWFgfPY8etF2FfTsz87ADKwTe/yd2gA2hEAew2Vx6mv4Ymd97zdc5Wm/zUz2xm79sR4k9nniGv06vV5Ck3MKBUf9P41k/1XwL1OxSc/7ClPM+JaQWq5dKxUu/lodzIyO2T2vVApYZicVZp9pwBQqbL jenkins@jenkins-deployment-7897599d49-gwwxq"
+        livenessProbe:
+          tcpSocket:
+            port: 22
+          initialDelaySeconds: 60
+          timeoutSeconds: 1
