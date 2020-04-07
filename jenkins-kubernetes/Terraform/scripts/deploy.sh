@@ -15,10 +15,13 @@ kubectl label node $(kubectl get nodes | grep -v NAME | sort | head -n1 | cut -d
 
 kubectl create ns jenkins
 kubectl create ns sonar
+kubectl create ns nexus
 
 # Deploy jenkins
 
 echo "Deployoing jenkins..."
-kubectl apply -f scripts/jenkins1.yml
+kubectl apply -f scripts/jenkins.yml
 kubectl apply -f scripts/ingress.yml
-
+kubectl apply -f scripts/postgres.yml
+kubectl apply -f scripts/sonar.yml
+kubectl apply -f scripts/nexus.yml
