@@ -1,0 +1,82 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nexus
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nexus-data
+  namespace: nexus
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 6Gi
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nexus-deploy
+  namespace: nexus
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nexus3
+    spec:
+      initContainers:
+      - name: volume-permissions
+        image: busybox:latest
+        command: ['chown', '-R', '200:200', '/nexus-data']
+        volumeMounts:
+        - name: nexus-data
+          mountPath: /nexus-data
+      containers:
+        - name: nexus
+          image: sonatype/nexus3:latest
+          ports:
+            - containerPort: 8081
+          volumeMounts:
+            - name: nexus-data
+              mountPath: /nexus-data
+      volumes:
+        - name: nexus-data
+          persistentVolumeClaim:
+            claimName: nexus-data
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nexus3
+  name: nexus-svc
+  namespace: nexus
+spec:
+  ports:
+    - name: nexus
+      port: 80
+      protocol: TCP
+      targetPort: 8081
+  selector:
+    app: nexus3
+  type: LoadBalancer
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: nexus-ingress
+  namespace: nexus
+spec:
+  rules:
+  - host: nexus.k8s.vandrushkevich.playpit.net
+    http:
+      paths:
+      - path:
+        backend:
+          serviceName: nexus-svc
+          servicePort: 80
