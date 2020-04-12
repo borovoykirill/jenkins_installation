@@ -11,11 +11,12 @@ gcloud container clusters get-credentials $REF --zone us-central1-a --project de
 # Label nodes
 
 kubectl label node --all node-role.kubernetes.io/worker=
-kubectl label node $(kubectl get nodes | grep -v NAME | sort | head -n1 | cut -d' ' -f1) node-role.kubernetes.io/worker-
 
 kubectl create ns jenkins
 kubectl create ns sonar
 kubectl create ns nexus
+kubectl create ns build
+kubectl create ns hello
 
 # Deploy jenkins
 
@@ -24,4 +25,7 @@ kubectl apply -f scripts/jenkins.yml
 kubectl apply -f scripts/ingress.yml
 kubectl apply -f scripts/postgres.yml
 kubectl apply -f scripts/sonar.yml
-kubectl apply -f scripts/nexus.yml
+kubectl apply -f scripts/nexus.yaml
+kubectl apply -f scripts/docker.yml
+kubectl apply -f scripts/slaves.yml
+
